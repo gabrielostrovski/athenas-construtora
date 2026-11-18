@@ -204,9 +204,18 @@ function createServer(opts = {}) {
     }
     notify(lead);
     const resp = { ...ok };
-    if (cfg.whatsapp) {
-      const t = `Olá, sou ${lead.nome}. Pedi um orçamento no site (${lead.tipo}).`;
-      resp.whatsapp = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(t)}`;
+    const waNum = cfg.whatsapp || '554788090990';
+    if (waNum) {
+      const linhas = [
+        `Olá, Athenas Construtora! Solicitei um orçamento pelo site:\n`,
+        `*Nome:* ${lead.nome}`,
+        `*Telefone:* ${lead.telefone}`,
+        lead.email ? `*E-mail:* ${lead.email}` : null,
+        `*Tipo de obra:* ${lead.tipo}`,
+        lead.msg ? `*Detalhes do projeto:*\n${lead.msg}` : null
+      ].filter(Boolean);
+      const texto = linhas.join('\n');
+      resp.whatsapp = `https://wa.me/${waNum}?text=${encodeURIComponent(texto)}`;
     }
     return sendJson(res, 200, resp);
   }
