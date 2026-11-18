@@ -1,0 +1,17 @@
+{
+  "name": "athenas-construtora",
+  "version": "1.0.0",
+  "description": "Site e backend da Athenas Construtora (Floresta, Joinville)",
+  "private": true,
+  "engines": { "node": ">=22.9" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/server.js",
+    "test": "node --test",
+    "db:init": "node scripts/init-db.js",
+    "db:seed": "node scripts/init-db.js --seed",
+    "db:stats": "node scripts/init-db.js --stats",
+    "db:export": "node scripts/export-data.js --csv",
+    "db:export:json": "node scripts/export-data.js --json",
+    "db:migrate-supabase": "node scripts/migrate-to-supabase.js"
+  }
+}
