@@ -33,7 +33,7 @@ function loadConfig(o = {}) {
     dataDir,
     dbPath: o.dbPath ?? (e.DB_PATH ? path.resolve(e.DB_PATH) : path.join(dataDir, 'athenas.db')),
     supabaseUrl: o.supabaseUrl ?? (e.SUPABASE_URL || ''),
-    supabaseKey: o.supabaseKey ?? (e.SUPABASE_KEY || e.SUPABASE_SERVICE_ROLE_KEY || e.SUPABASE_ANON_KEY || ''),
+    supabaseKey: o.supabaseKey ?? (e.SUPABASE_KEY || e.SUPABASE_SECRET_KEY || e.SUPABASE_SERVICE_ROLE_KEY || e.SUPABASE_PUBLISHABLE_KEY || e.SUPABASE_ANON_KEY || ''),
     adminToken: o.adminToken ?? (e.ADMIN_TOKEN || ''),
     trustProxy: o.trustProxy ?? (e.TRUST_PROXY === 'true'),
     siteOrigin: o.siteOrigin ?? (e.SITE_ORIGIN || ''),

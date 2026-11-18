@@ -9,7 +9,7 @@ const fs = require('node:fs');
 const { DatabaseManager } = require('../server/db.js');
 
 const supabaseUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
-const supabaseKey = (process.env.SUPABASE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
+const supabaseKey = (process.env.SUPABASE_KEY || process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
 
 if (!supabaseUrl || !supabaseKey) {
   console.error('\n❌ Erro: SUPABASE_URL e SUPABASE_KEY não configurados no arquivo .env!');

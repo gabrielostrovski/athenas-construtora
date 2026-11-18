@@ -51,7 +51,7 @@ class DatabaseManager {
     
     // Supabase
     this.supabaseUrl = (opts.supabaseUrl || process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
-    this.supabaseKey = (opts.supabaseKey || process.env.SUPABASE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
+    this.supabaseKey = (opts.supabaseKey || process.env.SUPABASE_KEY || process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY || '').trim();
     this.isSupabase = Boolean(this.supabaseUrl && this.supabaseKey);
 
     // SQLite
